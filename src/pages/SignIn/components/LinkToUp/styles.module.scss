@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  & h3 {
+    font-weight: 400;
+    // font-size: 13px;
+    color: #3d3d3d;
+  }
+
+  & button {
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3d3d3d;
+  }
+}
