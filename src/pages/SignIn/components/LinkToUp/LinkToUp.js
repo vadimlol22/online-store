@@ -7,7 +7,6 @@ const LinkToUp = () => {
   const navigate = useNavigate();
 
   const handleLinkToUp = () => {
-    console.log("asdad");
     return navigate(ROUTE_NAMES.SIGN_UP);
   };
 

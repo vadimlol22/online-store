@@ -5,3 +5,10 @@
   background-color: rgb(41, 71, 153);
   justify-content: center;
 }
+
+.link {
+  & img {
+    width: 110px;
+    height: 40px;
+  }
+}

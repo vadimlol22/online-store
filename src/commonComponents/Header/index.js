@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import { ROUTE_NAMES } from "../../routes/routeNames";
+import isAuthenticatedSelector from "../../pages/SignIn/selectors";
+import logo from "./../../static/images/poke_logo.png";
 
 import styles from "./styles.module.scss";
-
-import { useSelector } from "react-redux";
-import isAuthenticatedSelector from "../../pages/SignIn/selectors";
 
 const Header = () => {
   const isAuthenticated = useSelector(isAuthenticatedSelector);
@@ -12,9 +13,15 @@ const Header = () => {
   return (
     <div>
       {isAuthenticated ? (
-        <Link key="HOME" to={ROUTE_NAMES.HOME} className={styles.link}>
-          Home
-        </Link>
+        <div className={styles.header}>
+          <Link
+            key="POKEMONS"
+            to={ROUTE_NAMES.POKEMONS}
+            className={styles.link}
+          >
+            <img src={logo} alt="logo" />
+          </Link>
+        </div>
       ) : (
         <div className={styles.header}>
           <Link key="SIGN_UP" to={ROUTE_NAMES.SIGN_UP} className={styles.link}>

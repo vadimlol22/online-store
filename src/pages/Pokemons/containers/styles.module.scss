@@ -1,0 +1,30 @@
+.wrapper {
+  background: url(./../../../static/images/bg_poke.jpg) no-repeat;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  -moz-background-size: 100%;
+  -ms-background-size: 100%;
+  -khtml-background-size: 100%;
+
+  & h1 {
+    font-size: 56px;
+    text-align: center;
+    margin: 0;
+    padding: 40px 0 60px 0;
+  }
+
+  &__pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+
+    & Link {
+      text-decoration: none;
+    }
+
+    &__pokemon {
+      text-decoration: none;
+    }
+  }
+}

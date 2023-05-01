@@ -41,7 +41,7 @@ const FormSignUp = () => {
               onClick={() => navigate(ROUTE_NAMES.SIGN_IN)}
               variant="contained"
             >
-              Sign In!
+              Sign In
             </Button>
           </div>
         </div>
@@ -49,7 +49,6 @@ const FormSignUp = () => {
         <>
           <form onSubmit={formik.handleSubmit} className={styles.wrapper}>
             <h1>Введите ваши данные</h1>
-            <label htmlFor="firstName">First Name</label>
             <input
               className={styles.wrapper__input}
               id="firstName"
@@ -58,6 +57,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.firstName}
+              placeholder="First Name"
             />
             {formik.touched.firstName && formik.errors.firstName ? (
               <div className={styles.wrapper__input__error}>
@@ -65,7 +65,6 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <label htmlFor="lastName">Last Name</label>
             <input
               className={styles.wrapper__input}
               id="lastName"
@@ -74,6 +73,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.lastName}
+              placeholder="Last Name"
             />
             {formik.touched.lastName && formik.errors.lastName ? (
               <div className={styles.wrapper__input__error}>
@@ -81,7 +81,6 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <label htmlFor="gender">Gender</label>
             <input
               className={styles.wrapper__input}
               id="gender"
@@ -90,6 +89,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.gender}
+              placeholder="Gender"
             />
             {formik.touched.gender && formik.errors.gender ? (
               <div className={styles.wrapper__input__error}>
@@ -97,7 +97,6 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <label htmlFor="email">Email</label>
             <input
               className={styles.wrapper__input}
               id="email"
@@ -107,6 +106,7 @@ const FormSignUp = () => {
               onBlur={formik.handleBlur}
               value={formik.values.email}
               autoComplete="username"
+              placeholder="Email"
             />
             {formik.touched.email && formik.errors.email ? (
               <div className={styles.wrapper__input__error}>
@@ -114,7 +114,6 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <label htmlFor="password">Password</label>
             <input
               className={styles.wrapper__input}
               id="password"
@@ -124,6 +123,7 @@ const FormSignUp = () => {
               onBlur={formik.handleBlur}
               value={formik.values.password}
               autoComplete="current-password"
+              placeholder="Password"
             />
             {formik.touched.password && formik.errors.password ? (
               <div className={styles.wrapper__input__error}>
@@ -131,7 +131,6 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               className={styles.wrapper__input}
               id="confirmPassword"
@@ -140,7 +139,8 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.confirmPassword}
-              autoComplete="current-password"
+              autoComplete="Confirm Password"
+              placeholder="Confirm Password"
             />
             {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
               <div className={styles.wrapper__input__error}>
@@ -148,7 +148,6 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <label htmlFor="phone">Phone</label>
             <input
               className={styles.wrapper__input}
               id="phone"
@@ -157,6 +156,7 @@ const FormSignUp = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
+              placeholder="Phone"
             />
             {formik.touched.phone && formik.errors.phone ? (
               <div className={styles.wrapper__input__error}>
