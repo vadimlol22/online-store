@@ -11,7 +11,7 @@ const SignInContainer = () => {
   const isAuthenticated = useSelector(isAuthenticatedSelector);
 
   if (isAuthenticated) {
-    return <Navigate to={ROUTE_NAMES.HOME} />;
+    return <Navigate to={ROUTE_NAMES.POKEMONS} />;
   }
 
   return (

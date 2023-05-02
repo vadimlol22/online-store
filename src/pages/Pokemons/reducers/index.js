@@ -5,7 +5,7 @@ import { getPokemonsThunk } from "../api";
 const initialState = {
   data: [],
   isLoading: false,
-  errors: null,
+  errors: [],
 };
 
 const dataFetchingSlice = createSlice({

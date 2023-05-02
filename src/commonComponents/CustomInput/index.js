@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const CustomInput = ({ type, name, value, onChange, label }) => {
   return (
     <TextField
-      color="secondary"
+      color="success"
       id="outlined-basic"
       label={label}
       variant="outlined"
