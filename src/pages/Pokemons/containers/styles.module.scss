@@ -1,13 +1,13 @@
 .wrapper {
-  background-color: rgb(56, 127, 185);
+  // background-color: rgb(56, 127, 185);
   // background: url(./../../../static/images/bg_poke.jpg) no-repeat;
-  -webkit-background-size: 100%;
-  -o-background-size: 100%;
-  -moz-background-size: 100%;
-  -ms-background-size: 100%;
-  -khtml-background-size: 100%;
+  // -webkit-background-size: 100%;
+  // -o-background-size: 100%;
+  // -moz-background-size: 100%;
+  // -ms-background-size: 100%;
+  // -khtml-background-size: 100%;
   padding-bottom: 50px;
-  position: relative;
+  // position: relative;
 
   & h1 {
     font-size: 56px;
@@ -36,11 +36,4 @@
     display: flex;
     justify-content: center;
   }
-}
-
-.loading {
-  background-color: rgb(255, 255, 255, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
 }

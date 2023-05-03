@@ -7,6 +7,7 @@ import PokemonLink from "../components/PokemonLink/PokemonLink";
 import { ROUTE_NAMES } from "../../../routes/routeNames";
 import { usePagination, useScrollTop } from "../../../commonComponents/hooks";
 import CustomPagination from "../../../commonComponents/CustomPagination";
+import Errors from "../components/Errors/Errors";
 
 import styles from "./styles.module.scss";
 
@@ -14,8 +15,7 @@ const PokemonsContainer = () => {
   const dispatch = useDispatch();
 
   const pokemons = useSelector((state) => state.dataFetching.data);
-  const isLoading = useSelector((state) => state.dataFetching.isLoading);
-  // const errors = useSelector((state) => state.dataFetching.errors);
+  const errors = useSelector((state) => state.dataFetching.errors);
 
   const [page, handlePageChange] = usePagination(1);
 
@@ -29,7 +29,7 @@ const PokemonsContainer = () => {
     <div className={styles.wrapper}>
       <h1>NEW POKEMONS</h1>
 
-      {/* {errors && <Errors errors={errors} />} */}
+      {errors && <Errors errors={errors} />}
 
       <div className={styles.wrapper__pokemons}>
         {pokemons.map(({ name, image, price }) => (

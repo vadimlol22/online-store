@@ -24,6 +24,7 @@ const dataFetchingSlice = createSlice({
     builder.addCase(getPokemonsThunk.rejected, (state, { payload }) => {
       state.isLoading = false;
       state.errors = payload;
+      state.data = [];
     });
   },
 });

@@ -6,11 +6,12 @@ import PrivateRoute from "./PrivateRoute";
 import SignInContainer from "../pages/SignIn/containers/SignInContainer";
 import SignUpContainer from "../pages/SignUp/containers/SignUpContainer";
 import PokemonsContainer from "../pages/Pokemons/containers/PokemonsContainer";
+import HomeContainer from "../pages/Home/HomeContainer";
 
 const Router = () => {
   return (
     <Routes>
-      <Route path={ROUTE_NAMES.HOME} element={<h1>This is home page!!!</h1>} />
+      <Route path={ROUTE_NAMES.HOME} element={<HomeContainer />} />
       <Route path={ROUTE_NAMES.SIGN_UP} element={<SignUpContainer />} />
       <Route path={ROUTE_NAMES.SIGN_IN} element={<SignInContainer />} />
       <Route

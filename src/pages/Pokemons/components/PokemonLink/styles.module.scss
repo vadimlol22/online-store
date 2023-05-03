@@ -44,3 +44,29 @@
     color: #313037;
   }
 }
+
+.loading {
+  width: 400px;
+  text-align: center;
+  opacity: 0.4;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 40px;
+  transition: all 0.2s;
+
+  & img {
+    height: 150px;
+  }
+
+  & h2 {
+    font-weight: 700;
+    font-size: 24px;
+    color: #313037;
+    text-transform: uppercase;
+  }
+
+  & p {
+    font-size: 22px;
+    color: #313037;
+  }
+}
