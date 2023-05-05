@@ -7,6 +7,7 @@ import SignInContainer from "../pages/SignIn/containers/SignInContainer";
 import SignUpContainer from "../pages/SignUp/containers/SignUpContainer";
 import PokemonsContainer from "../pages/Pokemons/containers/PokemonsContainer";
 import HomeContainer from "../pages/Home/HomeContainer";
+import PokemonDetailsContainer from "../pages/PokemonDetails/container/PokemonDetailsContainer";
 
 const Router = () => {
   return (
@@ -22,14 +23,14 @@ const Router = () => {
           </PrivateRoute>
         }
       />
-      {/* <Route
+      <Route
         path={ROUTE_NAMES.POKEMON_DETAILS}
         element={
           <PrivateRoute>
             <PokemonDetailsContainer />
           </PrivateRoute>
         }
-      /> */}
+      />
     </Routes>
   );
 };

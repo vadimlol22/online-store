@@ -32,10 +32,10 @@ const PokemonsContainer = () => {
       {errors && <Errors errors={errors} />}
 
       <div className={styles.wrapper__pokemons}>
-        {pokemons.map(({ name, image, price }) => (
+        {pokemons.map(({ id, name, image, price }) => (
           <Link
             key={name}
-            to={`${ROUTE_NAMES.POKEMON_DETAILS}/${name}`}
+            to={`${ROUTE_NAMES.POKEMONS}/${id}`}
             className={styles.pokemons__pokemon}
             style={{
               textDecoration: "none",
