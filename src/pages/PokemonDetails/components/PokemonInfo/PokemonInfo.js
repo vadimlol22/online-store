@@ -7,6 +7,8 @@ import deffense from "./../../../../static/images/defense.png";
 import speed from "./../../../../static/images/speed.png";
 import specialAttack from "./../../../../static/images/special_attack.png";
 import specialDefense from "./../../../../static/images/special_defense.png";
+import star from "./../../../../static/images/abiliti.png";
+import pokeball from "./../../../../static/images/pokeball.png";
 import {
   pokemonAbilitiesSelector,
   pokemonIdSelector,
@@ -18,6 +20,7 @@ import {
 
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import BasicTabs from "../../../../commonComponents/CustomTabs";
 
 const PokemonInfo = () => {
   const navigate = useNavigate();
@@ -42,6 +45,9 @@ const PokemonInfo = () => {
 
       <div className={styles.card}>
         <h1>
+          <span>
+            <img src={pokeball} alt="pokemon" />
+          </span>
           <span> {id}</span> {name}
         </h1>
         <div className={styles.wrapper}>
@@ -77,8 +83,16 @@ const PokemonInfo = () => {
               </div>
             </div>
             <div className={styles.wrapper__right__abiliti}>
-              <div>title: {abilities[0]?.title}</div>
-              <div>description: {abilities[0]?.description}</div>
+              <div className={styles.wrapper__right__abiliti__text}>
+                <img src={star} alt="star" />
+                <h3>Abilities:</h3>
+              </div>
+              <BasicTabs
+                item1={abilities[0]?.title}
+                item1Content={abilities[0]?.description}
+                item2={abilities[1]?.title}
+                item2Content={abilities[1]?.description}
+              />
             </div>
           </div>
         </div>

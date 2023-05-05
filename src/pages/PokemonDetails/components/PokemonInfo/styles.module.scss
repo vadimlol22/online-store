@@ -47,6 +47,11 @@
     & span {
       font-weight: 400;
       font-size: 25px;
+
+      & img {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }
@@ -94,6 +99,31 @@
           font-weight: 700;
           font-size: 18px;
           margin: 0 5px;
+        }
+      }
+    }
+
+    &__abiliti {
+      background-color: darkseagreen;
+      border: 2px solid black;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      padding: 15px;
+
+      &__text {
+        display: flex;
+        justify-content: center;
+        & img {
+          height: 25px;
+          width: 25px;
+        }
+
+        & h3 {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          font-size: 18px;
+          text-align: center;
+          margin: 5px 0 0 0;
         }
       }
     }

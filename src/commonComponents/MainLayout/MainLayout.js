@@ -1,12 +1,10 @@
 import Header from "../Header";
 
-import styles from "./styles.module.scss";
-
 const MainLayout = ({ children }) => {
   return (
-    <div className={styles.container}>
+    <div>
       <Header />
-      <div className={styles.container__children}>{children}</div>
+      {children}
     </div>
   );
 };
