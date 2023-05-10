@@ -1,0 +1,41 @@
+.head {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  margin-left: 60px;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  margin-top: 75px;
+
+  &__img {
+    & img {
+      height: 275px;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  gap: 300px;
+  padding: 5px 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+
+  &:nth-child(1) {
+    background-color: #94bad9;
+  }
+
+  &:nth-child(3) {
+    background-color: #94bad9;
+  }
+
+  &:nth-child(5) {
+    background-color: #94bad9;
+  }
+}
