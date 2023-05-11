@@ -8,7 +8,7 @@ import CustomInput from "../../../../commonComponents/CustomInput";
 import CustomButton from "../../../../commonComponents/CustomButton";
 import Loading from "../Loading/Loading";
 import LinkToUp from "../LinkToUp/LinkToUp";
-import { Link } from "react-router-dom";
+
 const FormSignIn = () => {
   const dispatch = useDispatch();
 
@@ -33,6 +33,9 @@ const FormSignIn = () => {
             value={form.email}
             onChange={handleChange}
             label="email"
+            color={"success"}
+            variant={"outlined"}
+            id={"outlined-basic"}
           />
           <CustomInput
             type="password"
@@ -41,6 +44,9 @@ const FormSignIn = () => {
             onChange={handleChange}
             label="password"
             autocomplete="off"
+            color={"success"}
+            variant={"outlined"}
+            id={"outlined-basic"}
           />
 
           <CustomButton

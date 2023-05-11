@@ -1,19 +1,16 @@
 .wrapper {
-  // background-color: rgb(56, 127, 185);
-  // background: url(./../../../static/images/bg_poke.jpg) no-repeat;
-  // -webkit-background-size: 100%;
-  // -o-background-size: 100%;
-  // -moz-background-size: 100%;
-  // -ms-background-size: 100%;
-  // -khtml-background-size: 100%;
   padding-bottom: 50px;
-  // position: relative;
 
   & h1 {
     font-size: 56px;
     text-align: center;
     margin: 0;
-    padding: 40px 0 60px 0;
+    padding: 40px 0 40px 0;
+  }
+
+  &__input {
+    text-align: center;
+    margin-bottom: 70px;
   }
 
   &__pokemons {

@@ -17,5 +17,13 @@
       width: 40px;
       height: 40px;
     }
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+
+  &:hover {
+    scale: 1.2;
   }
 }
