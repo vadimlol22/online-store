@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import FormSignUp from "../components/FormSignUp/FormSignUp";
 import { ROUTE_NAMES } from "../../../routes/routeNames";
-import isAuthenticatedSelector from "../../SignIn/selectors";
+import { isAuthenticatedSelector } from "../../SignIn/selectors";
 
 import styles from "./styles.module.scss";
 

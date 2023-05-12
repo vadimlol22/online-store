@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 
 import CustomSpinner from "../../../../commonComponents/CustomSpinner";
+import { authErrorsSelector, authIsLoadingSelector } from "../../selectors";
 
 import styles from "./styles.module.scss";
 
 const Loading = () => {
-  const errors = useSelector((state) => state.auth.error);
-  const isLoading = useSelector((state) => state.auth.isLoading);
+  const errors = useSelector(authErrorsSelector);
+  const isLoading = useSelector(authIsLoadingSelector);
 
   return (
     <div className={styles.spinner}>

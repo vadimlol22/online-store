@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import isAuthenticatedSelector from "../pages/SignIn/selectors";
+import { isAuthenticatedSelector } from "../pages/SignIn/selectors";
 import { Navigate } from "react-router-dom";
 import { ROUTE_NAMES } from "./routeNames";
 

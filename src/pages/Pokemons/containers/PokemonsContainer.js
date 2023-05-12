@@ -3,20 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { getPokemonsThunk } from "../api";
-import PokemonLink from "../components/PokemonLink/PokemonLink";
 import { ROUTE_NAMES } from "../../../routes/routeNames";
+import { dataErrorsSelector, dataSelector } from "../selectors";
+import PokemonLink from "../components/PokemonLink/PokemonLink";
+import Errors from "../components/Errors/Errors";
 import { usePagination, useScrollTop } from "../../../commonComponents/hooks";
 import CustomPagination from "../../../commonComponents/CustomPagination";
-import Errors from "../components/Errors/Errors";
+import CustomInput from "../../../commonComponents/CustomInput";
 
 import styles from "./styles.module.scss";
-import CustomInput from "../../../commonComponents/CustomInput";
 
 const PokemonsContainer = () => {
   const dispatch = useDispatch();
 
-  const pokemons = useSelector((state) => state.dataFetching.data);
-  const errors = useSelector((state) => state.dataFetching.errors);
+  const pokemons = useSelector(dataSelector);
+  const errors = useSelector(dataErrorsSelector);
 
   const [page, handlePageChange] = usePagination(1);
   const [search, setSearch] = useState("");

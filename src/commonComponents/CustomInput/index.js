@@ -32,9 +32,9 @@ CustomInput.propTypes = {
   value: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  color: PropTypes.func.isRequired,
-  variant: PropTypes.func.isRequired,
-  id: PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default CustomInput;

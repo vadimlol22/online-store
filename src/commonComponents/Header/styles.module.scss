@@ -7,6 +7,7 @@
 }
 
 .link {
+  position: relative;
   & img {
     height: 40px;
   }
@@ -21,6 +22,17 @@
     &:hover {
       scale: 1.2;
     }
+  }
+
+  &__name {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
   }
 
   &:hover {

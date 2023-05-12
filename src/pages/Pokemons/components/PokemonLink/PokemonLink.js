@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 
+import { isLoadingSelector } from "../../selectors";
+
 import styles from "./styles.module.scss";
 
 const PokemonLink = ({ name, image, price }) => {
-  const isLoading = useSelector((state) => state.dataFetching.isLoading);
+  const isLoading = useSelector(isLoadingSelector);
 
   return (
     <div className={isLoading ? styles.loading : styles.wrapper}>

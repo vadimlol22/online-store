@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 import FormSignIn from "../components/FormSignIn/FormSignIn";
-import isAuthenticatedSelector from "../selectors";
+import { isAuthenticatedSelector } from "../selectors";
 import { ROUTE_NAMES } from "../../../routes/routeNames";
 
 import styles from "./styles.module.scss";

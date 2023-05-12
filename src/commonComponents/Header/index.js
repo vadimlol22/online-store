@@ -2,16 +2,23 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { ROUTE_NAMES } from "../../routes/routeNames";
-import isAuthenticatedSelector from "../../pages/SignIn/selectors";
+import { isAuthenticatedSelector } from "../../pages/SignIn/selectors";
+import {
+  personFirstNameSelector,
+  personGenderSelector,
+} from "../../pages/PersonalArea/selector";
+import { logOut } from "../../utils/logout";
 import logo from "./../../static/images/poke_logo.png";
 import exit from "./../../static/images/logout.png";
 import person from "./../../static/images/privatAreaIcon.png";
+import personWoman from "./../../static/images/privatAreaIconWoman.png";
 
 import styles from "./styles.module.scss";
-import { logOut } from "../../utils/logout";
 
 const Header = () => {
   const isAuthenticated = useSelector(isAuthenticatedSelector);
+  const isWoman = useSelector(personGenderSelector);
+  const namePerson = useSelector(personFirstNameSelector);
 
   return (
     <div>
@@ -29,7 +36,12 @@ const Header = () => {
             to={ROUTE_NAMES.PERSONAL_AREA}
             className={styles.link}
           >
-            <img src={person} alt="person" />
+            {isWoman === "female" ? (
+              <img src={personWoman} alt="personWoman" />
+            ) : (
+              <img src={person} alt="person" />
+            )}
+            <p className={styles.link__name}>{namePerson}</p>
           </Link>
           <a className={styles.link__logout} onClick={logOut}>
             <img src={exit} alt="logout" />

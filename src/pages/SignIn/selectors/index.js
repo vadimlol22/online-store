@@ -2,9 +2,17 @@ import { createSelector } from "@reduxjs/toolkit";
 
 const baseSelector = (state) => state.auth;
 
-const isAuthenticatedSelector = createSelector(
+export const isAuthenticatedSelector = createSelector(
   baseSelector,
   (auth) => auth.isAuthenticated
 );
 
-export default isAuthenticatedSelector;
+export const authErrorsSelector = createSelector(
+  baseSelector,
+  (auth) => auth.error
+);
+
+export const authIsLoadingSelector = createSelector(
+  baseSelector,
+  (auth) => auth.isLoading
+);

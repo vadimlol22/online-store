@@ -4,30 +4,30 @@ const baseSelector = (state) => state.auth.profileData;
 
 export const personFirstNameSelector = createSelector(
   baseSelector,
-  (details) => details.firstName
+  (auth) => auth.firstName
 );
 
 export const personLastNameSelector = createSelector(
   baseSelector,
-  (details) => details.lastName
+  (auth) => auth.lastName
 );
 
 export const personEmailSelector = createSelector(
   baseSelector,
-  (details) => details.email
+  (auth) => auth.email
 );
 
 export const personGenderSelector = createSelector(
   baseSelector,
-  (details) => details.gender
+  (auth) => auth.gender
 );
 
 export const personPhoneSelector = createSelector(
   baseSelector,
-  (details) => details.phone
+  (auth) => auth.phone
 );
 
 export const personRolesSelector = createSelector(
   baseSelector,
-  (details) => details.roles[0]
+  (auth) => auth.roles[0]
 );
