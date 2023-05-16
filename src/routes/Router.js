@@ -9,6 +9,7 @@ import PokemonsContainer from "../pages/Pokemons/containers/PokemonsContainer";
 import HomeContainer from "../pages/Home/HomeContainer";
 import PokemonDetailsContainer from "../pages/PokemonDetails/container/PokemonDetailsContainer";
 import PersonalAreaContainer from "../pages/PersonalArea/container/PersonalAreaContainer";
+import ShopCardContainer from "../pages/ShopCard/container/ShopCardContainer";
 
 const Router = () => {
   return (
@@ -37,6 +38,14 @@ const Router = () => {
         element={
           <PrivateRoute>
             <PersonalAreaContainer />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={ROUTE_NAMES.SHOP_CARD}
+        element={
+          <PrivateRoute>
+            <ShopCardContainer />
           </PrivateRoute>
         }
       />

@@ -14,11 +14,15 @@ import person from "./../../static/images/privatAreaIcon.png";
 import personWoman from "./../../static/images/privatAreaIconWoman.png";
 
 import styles from "./styles.module.scss";
+import CustomBadge from "../CustomBadge";
+import { useCard } from "../hooks";
 
 const Header = () => {
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   const isWoman = useSelector(personGenderSelector);
   const namePerson = useSelector(personFirstNameSelector);
+
+  const { cardItemsQuantity } = useCard();
 
   return (
     <div>
@@ -42,6 +46,13 @@ const Header = () => {
               <img src={person} alt="person" />
             )}
             <p className={styles.link__name}>{namePerson}</p>
+          </Link>
+          <Link
+            key="SHOP_CARD"
+            to={ROUTE_NAMES.SHOP_CARD}
+            className={styles.link}
+          >
+            <CustomBadge badgeContent={cardItemsQuantity} />
           </Link>
           <a className={styles.link__logout} onClick={logOut}>
             <img src={exit} alt="logout" />

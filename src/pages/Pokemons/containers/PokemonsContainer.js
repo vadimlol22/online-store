@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { getPokemonsThunk } from "../api";
-import { ROUTE_NAMES } from "../../../routes/routeNames";
 import { dataErrorsSelector, dataSelector } from "../selectors";
 import PokemonLink from "../components/PokemonLink/PokemonLink";
 import Errors from "../components/Errors/Errors";
-import { usePagination, useScrollTop } from "../../../commonComponents/hooks";
+import {
+  useCard,
+  usePagination,
+  useScrollTop,
+} from "../../../commonComponents/hooks";
 import CustomPagination from "../../../commonComponents/CustomPagination";
 import CustomInput from "../../../commonComponents/CustomInput";
 
@@ -15,6 +17,8 @@ import styles from "./styles.module.scss";
 
 const PokemonsContainer = () => {
   const dispatch = useDispatch();
+
+  const { addItemToCard } = useCard();
 
   const pokemons = useSelector(dataSelector);
   const errors = useSelector(dataErrorsSelector);
@@ -52,18 +56,22 @@ const PokemonsContainer = () => {
       {errors && <Errors errors={errors} />}
 
       <div className={styles.wrapper__pokemons}>
-        {sortedPokemons.map(({ id, name, image, price }) => (
-          <Link
-            key={name}
-            to={`${ROUTE_NAMES.POKEMONS}/${id}`}
-            className={styles.pokemons__pokemon}
-            style={{
-              textDecoration: "none",
-            }}
-          >
-            <PokemonLink name={name} image={image} price={price} />
-          </Link>
-        ))}
+        {sortedPokemons.length === 0 ? (
+          <div className={styles.wrapper__pokemons__clear}>
+            pokemon not found
+          </div>
+        ) : (
+          sortedPokemons.map(({ id, name, image, price }) => (
+            <PokemonLink
+              key={id}
+              id={id}
+              name={name}
+              image={image}
+              price={price}
+              handleAddToCard={addItemToCard}
+            />
+          ))
+        )}
       </div>
       <div className={styles.wrapper__pagination}>
         <CustomPagination page={page} handlePageChange={handlePageChange} />
