@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import styles from "./styles.module.scss";
 
 import backArrow from "./../../../../static/images/arrow_back.png";
@@ -17,24 +20,31 @@ import {
   pokemonPriceSelector,
   pokemonStatsSelector,
 } from "../../selector";
+import { cardItemsSelector } from "../../../ShopCard/selector";
 
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import BasicTabs from "../../../../commonComponents/CustomTabs";
+import CustomButton from "../../../../commonComponents/CustomButton";
+import { useCard } from "../../../../commonComponents/hooks";
 
 const PokemonInfo = () => {
   const navigate = useNavigate();
+  const { addItemToCard } = useCard();
 
   const name = useSelector(pokemonNameSelector);
   const id = useSelector(pokemonIdSelector);
-  const img = useSelector(pokemonImgSelector);
+  const image = useSelector(pokemonImgSelector);
   const price = useSelector(pokemonPriceSelector);
   const stats = useSelector(pokemonStatsSelector);
   const abilities = useSelector(pokemonAbilitiesSelector);
+  const cardItems = useSelector(cardItemsSelector);
 
   const handleBackPage = () => {
     navigate(-1);
   };
+
+  const pokemonInCard = cardItems.filter((pokemon) =>
+    pokemon.name.includes(name)
+  );
 
   return (
     <div>
@@ -52,8 +62,21 @@ const PokemonInfo = () => {
         </h1>
         <div className={styles.wrapper}>
           <div className={styles.wrapper__left}>
-            <img src={img} alt={name} />
+            <img src={image} alt={name} />
             <p>Price: {price} $</p>
+            <CustomButton
+              disabled={pokemonInCard.length === 0 ? false : true}
+              text="buy now"
+              color="success"
+              onClick={() =>
+                addItemToCard({ id, image, name, price, quantity: 1 })
+              }
+            />
+            {pokemonInCard.length !== 0 && (
+              <h3 className={styles.wrapper__left__add}>
+                pokemon added to cart
+              </h3>
+            )}
           </div>
           <div className={styles.wrapper__right}>
             <div className={styles.wrapper__right__stats}>

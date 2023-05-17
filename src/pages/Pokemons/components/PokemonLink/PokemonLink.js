@@ -6,10 +6,16 @@ import { ROUTE_NAMES } from "../../../../routes/routeNames";
 
 import styles from "./styles.module.scss";
 import CustomButton from "../../../../commonComponents/CustomButton";
+import { cardItemsSelector } from "../../../ShopCard/selector";
 
 const PokemonLink = ({ name, image, price, id, handleAddToCard }) => {
   const navigate = useNavigate();
   const isLoading = useSelector(isLoadingSelector);
+  const cardItems = useSelector(cardItemsSelector);
+
+  const pokemonInCard = cardItems.filter((pokemon) =>
+    pokemon.name.includes(name)
+  );
 
   return (
     <div className={isLoading ? styles.loading : styles.wrapper}>
@@ -18,15 +24,15 @@ const PokemonLink = ({ name, image, price, id, handleAddToCard }) => {
       <p>Price: {price}$</p>
       <div>
         <CustomButton
-          disabled={false}
-          text="add poke"
+          disabled={isLoading || pokemonInCard.length !== 0 ? true : false}
+          text={pokemonInCard.length === 0 ? "add poke" : "poke in cart"}
           color="primary"
           onClick={() =>
             handleAddToCard({ id, image, name, price, quantity: 1 })
           }
         />
         <CustomButton
-          disabled={false}
+          disabled={isLoading ? true : false}
           text="about poke"
           color="primary"
           onClick={() => navigate(`${ROUTE_NAMES.POKEMONS}/${id}`)}

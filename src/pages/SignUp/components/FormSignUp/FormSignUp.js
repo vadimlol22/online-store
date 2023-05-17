@@ -9,6 +9,7 @@ import { signUp } from "../../api";
 import { ROUTE_NAMES } from "../../../../routes/routeNames";
 
 import styles from "./styles.module.scss";
+import LinkToIn from "../LinkToIn/LinkToIn";
 
 const FormSignUp = () => {
   const navigate = useNavigate();
@@ -181,6 +182,8 @@ const FormSignUp = () => {
             >
               SUBMIT
             </Button>
+
+            <LinkToIn />
             {errors && <div className={styles.error}>{errors.message}</div>}
           </form>
         </>
