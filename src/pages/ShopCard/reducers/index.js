@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { getItemsThunk } from "../api/thunk/getItems";
 import { addItemThunk } from "../api/thunk/addItem";
+import { updateItemThunk } from "../api/thunk/updateItem";
 
 const initialState = {
   items: [],
@@ -18,6 +19,7 @@ const cardSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getItemsThunk.pending, (state) => {
       state.isLoading = true;
+      state.errors = null;
     });
     builder.addCase(getItemsThunk.fulfilled, (state, { payload }) => {
       const { totalPrice, quantity, itemsList } = payload;
@@ -35,6 +37,7 @@ const cardSlice = createSlice({
 
     builder.addCase(addItemThunk.pending, (state) => {
       state.isLoading = true;
+      state.errors = null;
     });
     builder.addCase(addItemThunk.fulfilled, (state, { payload }) => {
       const { totalPrice, quantity, itemsList } = payload;
@@ -46,6 +49,26 @@ const cardSlice = createSlice({
       state.errors = null;
     });
     builder.addCase(addItemThunk.rejected, (state, { payload }) => {
+      state.isLoading = false;
+      state.errors = payload;
+    });
+
+    builder.addCase(updateItemThunk.pending, (state) => {
+      state.isLoading = true;
+      state.errors = null;
+    });
+    builder.addCase(updateItemThunk.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.errors = null;
+
+      const { cartState, updatedItem } = payload;
+
+      const foundItem = state.items.find((item) => item.id === updatedItem.id);
+
+      foundItem.quantity = updatedItem.quantity;
+      state.totalPrice = cartState.totalPrice;
+    });
+    builder.addCase(updateItemThunk.rejected, (state, { payload }) => {
       state.isLoading = false;
       state.errors = payload;
     });

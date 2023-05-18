@@ -26,3 +26,10 @@ export const cardLoadingSelector = createSelector(
   baseSelector,
   (card) => card.isLoading
 );
+
+export const allPokemonsCardSelector = createSelector(
+  cardItemsSelector,
+  (items) => {
+    return items.reduce((result, { quantity }) => result + quantity, 0);
+  }
+);

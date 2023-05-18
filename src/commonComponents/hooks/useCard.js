@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+  allPokemonsCardSelector,
   cardItemsQuantitySelector,
   cardItemsSelector,
   totalPriceSelector,
@@ -7,6 +8,7 @@ import {
 import { useCallback } from "react";
 import { getItemsThunk } from "../../pages/ShopCard/api/thunk/getItems";
 import { addItemThunk } from "../../pages/ShopCard/api/thunk/addItem";
+import { updateItemThunk } from "../../pages/ShopCard/api/thunk/updateItem";
 
 const useCard = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ const useCard = () => {
   const cardItems = useSelector(cardItemsSelector);
   const cardItemsQuantity = useSelector(cardItemsQuantitySelector);
   const totalPrice = useSelector(totalPriceSelector);
+  const allPokeInCard = useSelector(allPokemonsCardSelector);
 
   const getCardData = useCallback(() => {
     dispatch(getItemsThunk());
@@ -26,12 +29,21 @@ const useCard = () => {
     [dispatch]
   );
 
+  const updateItemQuantity = useCallback(
+    (payload) => {
+      dispatch(updateItemThunk(payload));
+    },
+    [dispatch]
+  );
+
   return {
     cardItems,
     cardItemsQuantity,
     totalPrice,
+    allPokeInCard,
     getCardData,
     addItemToCard,
+    updateItemQuantity,
   };
 };
 

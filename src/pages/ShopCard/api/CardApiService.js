@@ -13,8 +13,8 @@ class CardService {
     return mainApi.post(`${this.#baseUrl}/item`, item);
   }
 
-  updateItem({ id, quanity }) {
-    return mainApi.patch(`${this.#baseUrl}/item`, { id, quanity });
+  updateItem({ id, quantity }) {
+    return mainApi.patch(`${this.#baseUrl}/item`, { id, quantity });
   }
 
   deleteItem(id) {
