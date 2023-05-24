@@ -1,0 +1,40 @@
+.wrapper {
+  padding-bottom: 50px;
+
+  & h1 {
+    font-size: 56px;
+    text-align: center;
+    margin: 0;
+    padding: 40px 0 40px 0;
+  }
+
+  &__input {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  &__pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    margin-bottom: 35px;
+
+    &__pokemon {
+      text-decoration: none;
+    }
+
+    &__clear {
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      color: #ffb05a;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

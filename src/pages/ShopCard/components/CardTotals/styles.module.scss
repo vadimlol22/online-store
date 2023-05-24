@@ -1,0 +1,90 @@
+.wrapper {
+  font-family: "Montserrat", sans-serif;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  background: #8be2e2;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 53px;
+
+  & h3 {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 18px;
+    color: #3d3d3d;
+    padding-bottom: 11px;
+  }
+
+  &__info {
+    &__field {
+      display: flex;
+      justify-content: space-between;
+
+      & h4 {
+        font-weight: 400;
+        font-size: 15px;
+        color: #3d3d3d;
+      }
+
+      & p {
+        font-weight: 500;
+        font-size: 18px;
+        color: #3d3d3d;
+      }
+    }
+
+    &__total {
+      display: flex;
+      justify-content: space-between;
+
+      & h4 {
+        font-weight: 700;
+        font-size: 16px;
+        color: #3d3d3d;
+      }
+
+      & p {
+        font-weight: 700;
+        font-size: 18px;
+        color: #46a358;
+      }
+    }
+  }
+
+  &__buy {
+    background: #46a358;
+    font-weight: 700;
+    font-size: 15px;
+    border: 0;
+    border-radius: 3px;
+    color: white;
+    padding: 12px;
+
+    &:hover {
+      background: #1e652c;
+    }
+    &:active {
+      background: black;
+    }
+  }
+
+  &__empty {
+    font-weight: 400;
+    font-size: 15px;
+    border: 0;
+    border-radius: 3px;
+    padding: 9px;
+    background: #65231e;
+    color: white;
+    width: 250px;
+    margin: 10px auto 0 auto;
+
+    &:hover {
+      background: #360e0c;
+    }
+    &:active {
+      background: black;
+    }
+  }
+}
