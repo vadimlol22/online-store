@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import Button from "@mui/material/Button";
 
@@ -15,10 +15,11 @@ const CustomButton = ({ text, onClick, color, disabled }) => {
   );
 };
 
-// CustomButton.propTypes = {
-//   text: PropTypes.string.isRequired,
-//   onClick: PropTypes.func.isRequired,
-//   color: PropTypes.string,
-// };
+CustomButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
+};
 
 export default CustomButton;

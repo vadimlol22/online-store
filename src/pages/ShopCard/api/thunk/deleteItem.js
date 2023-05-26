@@ -4,7 +4,7 @@ import CardService from "../CardApiService";
 
 export const deleteItemThunk = createAsyncThunk(
   "card/deleteItem",
-  async (payload, { rejectWithValue }) => {
+  async (id, { rejectWithValue }) => {
     try {
       const response = await CardService.deleteItem(id);
 

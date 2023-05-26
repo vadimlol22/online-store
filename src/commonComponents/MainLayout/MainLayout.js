@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 import Header from "../Header";
 import { isAuthenticatedSelector } from "../../pages/SignIn/selectors";
@@ -21,6 +22,10 @@ const MainLayout = ({ children }) => {
       {children}
     </div>
   );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.object,
 };
 
 export default MainLayout;

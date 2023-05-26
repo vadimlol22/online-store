@@ -1,5 +1,6 @@
 import Skeleton from "@mui/material/Skeleton";
-// import Box from "@mui/material/Box";
+
+import PropTypes from "prop-types";
 
 const CustomSkeleton = ({ width, height }) => {
   return (
@@ -16,6 +17,11 @@ const CustomSkeleton = ({ width, height }) => {
       }}
     />
   );
+};
+
+CustomSkeleton.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
 };
 
 export default CustomSkeleton;

@@ -1,5 +1,7 @@
 import { IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge";
+import PropTypes from "prop-types";
+
 import basket from "./../../static/images/basket.png";
 
 const CustomBagde = ({ badgeContent }) => {
@@ -11,5 +13,9 @@ const CustomBagde = ({ badgeContent }) => {
     </IconButton>
   );
 };
+
+CustomBagde.propTypes = {
+  badgeContent: PropTypes.number.isRequired,
+}
 
 export default CustomBagde;

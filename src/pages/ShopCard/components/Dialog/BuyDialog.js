@@ -5,16 +5,26 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useCard } from "../../../../commonComponents/hooks";
 
-export default function AlertDialog({ content, text }) {
+export default function BuyDialog({ content, text, allPokeInCard }) { 
+
+  const { cardItems, clearAllCard } = useCard()
+
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
+
+    if(allPokeInCard !== 0) {
+        clearAllCard(cardItems)
+    }
+
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setOpen(false);  
   };
+
 
   return (
     <div>
@@ -34,10 +44,7 @@ export default function AlertDialog({ content, text }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
+          <Button onClick={handleClose} autoFocus>Good!</Button>
         </DialogActions>
       </Dialog>
     </div>

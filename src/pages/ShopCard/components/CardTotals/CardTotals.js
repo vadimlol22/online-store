@@ -1,5 +1,10 @@
-import AlertDialog from "../Dialog/Dialog";
+import PropTypes from "prop-types";
+
+import BuyDialog from "../Dialog/BuyDialog";
+import ClearCardDialog from "../Dialog/ClearCardDialog";
+
 import styles from "./styles.module.scss";
+
 
 const CardTotals = ({ cardItemsQuantity, totalPrice, allPokeInCard }) => {
   return (
@@ -19,15 +24,34 @@ const CardTotals = ({ cardItemsQuantity, totalPrice, allPokeInCard }) => {
           <p>${totalPrice}</p>
         </div>
       </div>
-      <button className={styles.wrapper__buy}>BUY</button>
+      <button className={styles.wrapper__buy}>
+        {allPokeInCard !== 0 ? 
+        <BuyDialog
+        content="Valide purchase"
+        text="Your order is accepted"
+        allPokeInCard={allPokeInCard}
+        />
+         :
+          <BuyDialog
+        content="Valide purchase"
+        text="Add item to cart"
+        allPokeInCard={allPokeInCard}
+        />}
+      </button>
       <button className={styles.wrapper__empty}>
-        <AlertDialog
+        <ClearCardDialog
           content="Empty Shopping Cart"
           text="Are you sure you want to empty the shopping cart?"
         />
       </button>
     </div>
   );
+};
+
+CardTotals.propTypes = {
+  cardItemsQuantity: PropTypes.number.isRequired,
+  totalPrice: PropTypes.number.isRequired,
+  allPokeInCard: PropTypes.number.isRequired,
 };
 
 export default CardTotals;

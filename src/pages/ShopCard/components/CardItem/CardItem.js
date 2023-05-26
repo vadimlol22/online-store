@@ -1,18 +1,12 @@
 import styles from "./styles.module.scss";
 
 import trash from "./../../../../static/images/trash.png";
-import AlertDialog from "../Dialog/Dialog";
+import DeleteItemDialog from "../Dialog/DeleteItemDialog";
+
+import PropTypes from "prop-types";
 
 const CardItem = ({ id, name, image, quantity, price, updateItemQuantity }) => {
   const total = price * quantity;
-
-  //   const handleSubtractionQuantity = () => {
-  //     if (quantity > 1) {
-  //       updateItemQuantity({ id, quantity: quantity - 1 });
-  //     } else {
-  //       <AlertDialog boolo="true" />;
-  //     }
-  //   };
 
   return (
     <div className={styles.item}>
@@ -26,7 +20,6 @@ const CardItem = ({ id, name, image, quantity, price, updateItemQuantity }) => {
         <button
           disabled={quantity === 1}
           onClick={() => updateItemQuantity({ id, quantity: quantity - 1 })}
-          //   onClick={handleSubtractionQuantity}
         >
           -
         </button>
@@ -39,13 +32,23 @@ const CardItem = ({ id, name, image, quantity, price, updateItemQuantity }) => {
       </div>
       <div className={styles.item__total}>${total}</div>
       <button className={styles.item__trash}>
-        <AlertDialog
+        <DeleteItemDialog
           content={<img src={trash} alt="trash" />}
           text="Are you sure you want to remove this item?"
+          id={id}
         />
       </button>
     </div>
   );
+};
+
+CardItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  updateItemQuantity: PropTypes.func.isRequired,
 };
 
 export default CardItem;

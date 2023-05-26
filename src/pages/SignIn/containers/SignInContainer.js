@@ -17,8 +17,8 @@ const SignInContainer = () => {
   return (
     <div className={styles.main}>
       <h1>
-        Добро пожаловать в интернет магазин покемонов, для входа в наш магазин
-        авторизируйтесь пожалуйста
+      Welcome to the online pokemon store, to enter our store
+      log in please
       </h1>
       <FormSignIn />
     </div>

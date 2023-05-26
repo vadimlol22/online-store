@@ -22,17 +22,18 @@ const ShopCardContainer = () => {
 
   return (
     <div>
-      <h2>Shopping Cart</h2>
+      <h2 className={styles.head}>Shopping Cart</h2>
       <div className={styles.wrapper}>
         <div className={styles.wrapper__left}>
           <div className={styles.wrapper__left__header}>
             <p className={styles.wrapper__left__header_1}>Products</p>
             <p className={styles.wrapper__left__header_2}>Price</p>
-            <p className={styles.wrapper__left__header_3}>Quantiy</p>
+            <p className={styles.wrapper__left__header_3}>Quantity</p>
             <p className={styles.wrapper__left__header_4}>Total</p>
           </div>
           {cardItems.map(({ id, name, image, quantity, price }) => (
             <CardItem
+              key={id}
               id={id}
               name={name}
               image={image}

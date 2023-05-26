@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 
 import { isLoadingSelector } from "../../selectors";
 import { ROUTE_NAMES } from "../../../../routes/routeNames";
@@ -40,6 +42,14 @@ const PokemonLink = ({ name, image, price, id, handleAddToCard }) => {
       </div>
     </div>
   );
+};
+
+PokemonLink.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  handleAddToCard: PropTypes.func.isRequired,
 };
 
 export default PokemonLink;

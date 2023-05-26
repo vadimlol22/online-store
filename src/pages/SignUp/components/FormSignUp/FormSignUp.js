@@ -49,7 +49,7 @@ const FormSignUp = () => {
       ) : (
         <>
           <form onSubmit={formik.handleSubmit} className={styles.wrapper}>
-            <h1>Введите ваши данные</h1>
+            <h1>Enter your details</h1>
             <input
               className={styles.wrapper__input}
               id="firstName"

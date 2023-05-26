@@ -9,6 +9,8 @@ import { useCallback } from "react";
 import { getItemsThunk } from "../../pages/ShopCard/api/thunk/getItems";
 import { addItemThunk } from "../../pages/ShopCard/api/thunk/addItem";
 import { updateItemThunk } from "../../pages/ShopCard/api/thunk/updateItem";
+import { deleteItemThunk } from "../../pages/ShopCard/api/thunk/deleteItem";
+import { clearAllCardThunk } from "../../pages/ShopCard/api/thunk/clearAllCardThunk";
 
 const useCard = () => {
   const dispatch = useDispatch();
@@ -36,6 +38,21 @@ const useCard = () => {
     [dispatch]
   );
 
+  const deleteIteminCard = useCallback(
+    (id) => {
+      dispatch(deleteItemThunk(id));
+    },
+    [dispatch]
+  );
+
+  const clearAllCard = useCallback (
+     (items) => {
+      const promises = items.map(({ id }) => dispatch(deleteItemThunk(id)));
+      dispatch(clearAllCardThunk(promises));
+    },
+    [dispatch]
+  );
+
   return {
     cardItems,
     cardItemsQuantity,
@@ -44,6 +61,8 @@ const useCard = () => {
     getCardData,
     addItemToCard,
     updateItemQuantity,
+    deleteIteminCard,
+    clearAllCard
   };
 };
 
