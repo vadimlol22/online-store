@@ -9,20 +9,23 @@ import { useCard } from "../../../../commonComponents/hooks";
 
 export default function BuyDialog({ content, text, allPokeInCard }) { 
 
-  const { cardItems, clearAllCard } = useCard()
+  const {  orderCart } = useCard()
 
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
 
     if(allPokeInCard !== 0) {
-        clearAllCard(cardItems)
+      orderCart()
+
     }
 
   };
 
   const handleClose = () => {
     setOpen(false);  
+
+    window.location.reload();
   };
 
 

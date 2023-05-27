@@ -20,6 +20,10 @@ class CardService {
   deleteItem(id) {
     return mainApi.delete(`${this.#baseUrl}/item/${id}`);
   }
+
+  order({ customerId, totalPrice, itemsList }) {
+    return mainApi.post("/order", { customerId, totalPrice, itemsList });
+  }
 }
 
 export default CardService.instance;

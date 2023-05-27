@@ -11,6 +11,8 @@ import { addItemThunk } from "../../pages/ShopCard/api/thunk/addItem";
 import { updateItemThunk } from "../../pages/ShopCard/api/thunk/updateItem";
 import { deleteItemThunk } from "../../pages/ShopCard/api/thunk/deleteItem";
 import { clearAllCardThunk } from "../../pages/ShopCard/api/thunk/clearAllCardThunk";
+import { customerIdSelector } from "../../pages/SignIn/selectors";
+import { orderCardThunk } from "../../pages/ShopCard/api/thunk/orderCardThunk";
 
 const useCard = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const useCard = () => {
   const cardItemsQuantity = useSelector(cardItemsQuantitySelector);
   const totalPrice = useSelector(totalPriceSelector);
   const allPokeInCard = useSelector(allPokemonsCardSelector);
+  const customerId = useSelector(customerIdSelector);
 
   const getCardData = useCallback(() => {
     dispatch(getItemsThunk());
@@ -53,6 +56,10 @@ const useCard = () => {
     [dispatch]
   );
 
+  const orderCart = useCallback(() => {
+    dispatch(orderCardThunk({ customerId, totalPrice, itemsList: cardItems }));
+  }, [dispatch, customerId, totalPrice, cardItems]);
+
   return {
     cardItems,
     cardItemsQuantity,
@@ -62,7 +69,8 @@ const useCard = () => {
     addItemToCard,
     updateItemQuantity,
     deleteIteminCard,
-    clearAllCard
+    clearAllCard,
+    orderCart
   };
 };
 

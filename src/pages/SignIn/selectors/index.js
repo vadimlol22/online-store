@@ -16,3 +16,8 @@ export const authIsLoadingSelector = createSelector(
   baseSelector,
   (auth) => auth.isLoading
 );
+
+export const customerIdSelector = createSelector(
+  baseSelector,
+  (auth) => auth.profileData._id
+);

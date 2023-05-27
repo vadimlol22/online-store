@@ -25,7 +25,7 @@ const PokemonDetailsContainer = () => {
   return (
     <div>
       {isLoading ? (
-        <CustomSkeleton width={700} height={700} />
+        <CustomSkeleton width={800} height={700} />
       ) : (
         <div className={styles.item}>
           <PokemonInfo />

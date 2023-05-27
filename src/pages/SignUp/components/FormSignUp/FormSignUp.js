@@ -82,7 +82,7 @@ const FormSignUp = () => {
               </div>
             ) : null}
 
-            <input
+            {/* <input
               className={styles.wrapper__input}
               id="gender"
               name="gender"
@@ -91,12 +91,19 @@ const FormSignUp = () => {
               onBlur={formik.handleBlur}
               value={formik.values.gender}
               placeholder="Gender"
-            />
-            {formik.touched.gender && formik.errors.gender ? (
-              <div className={styles.wrapper__input__error}>
-                {formik.errors.gender}
-              </div>
-            ) : null}
+            /> */}
+            <select
+              className={styles.wrapper__input__gender}
+              id="gender"
+              name="gender"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.gender}>
+                <option>gender</option>
+                <option>male</option>
+                <option>female</option>
+            </select>
 
             <input
               className={styles.wrapper__input}

@@ -50,7 +50,7 @@ const PokemonInfo = () => {
     <div>
       <div className={styles.arrow}>
         <img src={backArrow} alt="arrow" onClick={handleBackPage} />
-        <h2>Предыдущая страница</h2>
+        <h2>Previous page</h2>
       </div>
 
       <div className={styles.card}>
@@ -82,27 +82,27 @@ const PokemonInfo = () => {
             <div className={styles.wrapper__right__stats}>
               <div className={styles.wrapper__right__stats__stat}>
                 <img src={hp} alt={hp} />
-                <p>{stats[0]?.value}</p>
+                <p>{stats?.[0]?.value}</p>
               </div>
               <div className={styles.wrapper__right__stats__stat}>
                 <img src={attack} alt={attack} />
-                <p>{stats[1]?.value}</p>
+                <p>{stats?.[1]?.value}</p>
               </div>
               <div className={styles.wrapper__right__stats__stat}>
                 <img src={deffense} alt={deffense} />
-                <p>{stats[2]?.value}</p>
+                <p>{stats?.[2]?.value}</p>
               </div>
               <div className={styles.wrapper__right__stats__stat}>
                 <img src={specialAttack} alt={specialAttack} />
-                <p>{stats[3]?.value}</p>
+                <p>{stats?.[3]?.value}</p>
               </div>
               <div className={styles.wrapper__right__stats__stat}>
                 <img src={specialDefense} alt={specialDefense} />
-                <p>{stats[4]?.value}</p>
+                <p>{stats?.[4]?.value}</p>
               </div>
               <div className={styles.wrapper__right__stats__stat}>
                 <img src={speed} alt={speed} />
-                <p>{stats[5]?.value}</p>
+                <p>{stats?.[5]?.value}</p>
               </div>
             </div>
             <div className={styles.wrapper__right__abiliti}>
@@ -111,10 +111,10 @@ const PokemonInfo = () => {
                 <h3>Abilities:</h3>
               </div>
               <BasicTabs
-                item1={abilities[0]?.title}
-                item1Content={abilities[0]?.description}
-                item2={abilities[1]?.title}
-                item2Content={abilities[1]?.description}
+                item1={abilities?.[0]?.title}
+                item1Content={abilities?.[0]?.description}
+                item2={abilities?.[1]?.title}
+                item2Content={abilities?.[1]?.description}
               />
             </div>
           </div>
